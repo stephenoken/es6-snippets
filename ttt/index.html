@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var c;
+      window.onload = ()=>{
+        const canvas = document.getElementById("canvas");
+        c = canvas.getContext("2d");
+
+        canvas.onclick = (e)=>{
+          if(e.pageX < 500 && e.pageY < 500){
+            const cX = Math.floor(e.pageX/(500/3));
+            const cY = Math.floor(e.pageY/(500/3));
+            console.log(`${cX},${cY}`);
+          }
+        }
+        draw();
+      }
+
+      const bg = new Image();
+      const x = new Image();
+      const o = new Image();
+      bg.src="ttt_bg.png";
+      x.src="ttt_x.png";
+      o.src="ttt_o.png";
+
+      function draw() {
+        c.clearRect(0,0,500,500);
+        c.drawImage(bg,0,0);
+      }
+    </script>
+    <canvas id="canvas" width="500" height="500" style="position:relative;left:500px;"></canvas>
+  </body>
+</html>
